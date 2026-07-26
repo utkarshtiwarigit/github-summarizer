@@ -18,9 +18,7 @@ if API_KEY is None:
 
 client = genai.Client(api_key=API_KEY)
 
-# -------------------------------
 # Fetch README
-# -------------------------------
 
 def fetch_readme(repo_url):
     """
@@ -57,9 +55,7 @@ def fetch_readme(repo_url):
     return None
 
 
-# -------------------------------
 # Summarize README
-# -------------------------------
 
 def summarize_repo(readme_text):
     """
@@ -91,12 +87,7 @@ README:
 
     except Exception as e:
         return f"Gemini API Error:\n{e}"
-
-
-# -------------------------------
 # Main Program
-# -------------------------------
-
 def main():
 
     repo_url = input("Enter GitHub repository URL:\n> ").strip()
