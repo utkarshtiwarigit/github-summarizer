@@ -1,97 +1,49 @@
-# RepoLens 🔍
+RepoLens is a full-stack AI application that analyzes public GitHub repositories by extracting and interpreting project documentation. It generates structured technical summaries that help developers quickly understand a repository's purpose, technology stack, architecture, and contribution workflow without manually reading extensive documentation.
 
-**RepoLens** is an AI-powered GitHub repository analyzer that helps developers understand any open-source project in seconds.
-
-Simply paste a GitHub repository URL, and RepoLens automatically fetches the project's README, analyzes it using Google's Gemini AI, and generates a structured summary including the project's purpose, technology stack, contribution ideas, and key insights.
+The application also maintains a history of analyzed repositories using PostgreSQL, allowing previously generated summaries to be revisited without repeating the analysis.
 
 ---
 
-## ✨ Features
+## Core Architecture
 
-- 🤖 AI-powered repository analysis using Gemini
-- 🔗 Analyze any public GitHub repository from its URL
-- 📖 Automatically fetches and processes the project's README
-- ⚡ Generates concise, structured summaries within seconds
-- 🧠 Identifies:
-  - Project overview
-  - Tech stack
-  - Beginner-friendly contribution ideas
-  - Target audience
-- 📜 Stores recent analyses using PostgreSQL
-- 🎨 Modern animated UI built with Next.js and Tailwind CSS
-- 🌌 Interactive landing page with custom animations
+- Built as a full-stack Next.js application with React and TypeScript.
+- Uses Next.js API Routes to orchestrate repository retrieval, AI inference, and database operations.
+- Persists repository analyses in PostgreSQL using Drizzle ORM and Neon Database.
+- Designed with a modular component architecture separating the landing page, analysis workflow, animated UI, and reusable visual components.
 
 ---
 
-## 🛠 Tech Stack
+## Technical Highlights
 
-### Frontend
-- Next.js 16
-- React 19
-- TypeScript
-- Tailwind CSS
-
-### Backend
-- Next.js API Routes
-- Google Gemini API
-
-### Database
-- PostgreSQL
-- Drizzle ORM
-- Neon Database
+- Automatic retrieval of README files from public GitHub repositories.
+- AI-generated repository summaries using the Google Gemini API.
+- Markdown parsing and rendering for structured presentation of generated analyses.
+- Persistent storage of previously analyzed repositories.
+- Responsive interface with custom animated transitions and reusable UI components.
 
 ---
 
-## 🚀 How It Works
+## Technology Stack
 
-1. Enter a GitHub repository URL.
-2. RepoLens fetches the repository's README.
-3. The README is sent to Gemini AI.
-4. Gemini generates a structured analysis.
-5. The summary is displayed in a clean interface and stored in PostgreSQL for future reference.
-
----
-
-## 📸 Preview
-
-> Add screenshots or a demo GIF here.
-
-```
-Landing Page
-Analyzer Page
-Generated AI Summary
-```
+| Layer | Technologies |
+|--------|--------------|
+| Frontend | Next.js, React, TypeScript, Tailwind CSS |
+| Backend | Next.js API Routes |
+| AI | Google Gemini API |
+| Database | PostgreSQL, Drizzle ORM, Neon |
+| Tooling | ESLint, npm |
 
 ---
 
-## 📂 Project Structure
-
-```text
-src/
-├── app/
-│   ├── api/
-│   ├── db/
-│   ├── globals.css
-│   ├── layout.tsx
-│   └── page.tsx
-│
-├── components/
-│   ├── App.tsx
-│   ├── LandingPage.tsx
-│   ├── AnalyzerPage.tsx
-│   ├── MatrixBackground.tsx
-│   └── CustomCursor.tsx
-```
-
 ---
 
-## ⚙️ Installation
+## Running Locally
 
 Clone the repository:
 
 ```bash
-git clone https://github.com/<your-username>/repolens.git
-cd repolens
+git clone https://github.com/utkarshtiwarigit/github-summarizer.git
+cd github-summarizer
 ```
 
 Install dependencies:
@@ -100,14 +52,14 @@ Install dependencies:
 npm install
 ```
 
-Create a `.env` file in the project root:
+Configure environment variables:
 
 ```env
-GOOGLE_API_KEY=your_gemini_api_key
-DATABASE_URL=your_postgresql_connection_string
+GOOGLE_API_KEY=your_api_key
+DATABASE_URL=your_database_url
 ```
 
-Push the database schema:
+Apply the database schema:
 
 ```bash
 npx drizzle-kit push
@@ -119,51 +71,14 @@ Start the development server:
 npm run dev
 ```
 
-Open:
-
-```
-http://localhost:3000
-```
-
 ---
 
-## 📌 Environment Variables
+## Future Work
 
-| Variable | Description |
-|----------|-------------|
-| `GOOGLE_API_KEY` | Google Gemini API Key |
-| `DATABASE_URL` | PostgreSQL connection string (Neon) |
-
----
-
-## 🎯 Future Improvements
-
-- GitHub authentication
-- Repository metadata (stars, forks, issues, contributors)
-- Commit history analysis
-- Architecture and folder structure visualization
-- Export summaries as PDF or Markdown
-- AI-powered repository comparison
-- Repository bookmarking and favorites
+- Repository metadata analysis (stars, forks, issues, contributors)
+- Commit history summarization
+- Repository architecture visualization
+- PDF and Markdown export
+- Authentication and saved collections
 
 ---
-
-## 🤝 Contributing
-
-Contributions are welcome!
-
-Feel free to open an issue or submit a pull request to improve RepoLens.
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
----
-
-## 👨‍💻 Author
-
-**Utkarsh Tiwari**
-
-Built to simplify exploring open-source projects with AI.
